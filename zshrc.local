@@ -9,7 +9,6 @@ alias urbt='systemctl reboot'
 # This command causes the system to freeze - don't use it!
 #alias uslp='systemctl suspend'
 alias dtstring='date +%Y%m%d%H%M%S'
-alias sudovim='sudo vim -u ~/.vimrc'
 
 #### Colors and Prompt Customization ####
 
