@@ -6,8 +6,7 @@
 alias lockscreen='i3lock --color=000000'
 alias ushd='systemctl poweroff'
 alias urbt='systemctl reboot'
-# This command causes the system to freeze - don't use it!
-#alias uslp='systemctl suspend'
+alias usus='systemctl suspend'
 alias dtstring='date +%Y%m%d%H%M%S'
 
 # And an SSH that attaches to screen - "screen ssh"
