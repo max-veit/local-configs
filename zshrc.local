@@ -8,6 +8,7 @@ alias ushd='systemctl poweroff'
 alias urbt='systemctl reboot'
 alias usus='systemctl suspend'
 alias dtstring='date +%Y%m%d%H%M%S'
+alias pres-mirror='xrandr --output DP-0 --same-as LVDS-0 --mode 1440x900'
 
 # And an SSH that attaches to screen - "screen ssh"
 function sssh() {
