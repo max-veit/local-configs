@@ -46,7 +46,7 @@ zstyle ':vcs_info:*' formats       "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}
 
 function virtual_env_prompt() {
     if [[ -n "${VIRTUAL_ENV}" ]] ; then
-        REPLY="${VIRTUAL_ENV:t} "
+        REPLY="(${VIRTUAL_ENV:t}) "
     elif [[ -n "${CONDA_DEFAULT_ENV}" ]] ; then
         REPLY="(${CONDA_DEFAULT_ENV:t}) "
     else
