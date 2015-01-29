@@ -46,7 +46,7 @@ zstyle ':vcs_info:*' formats       "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}
 
 function virtual_env_prompt() {
     if [[ -n "${VIRTUAL_ENV}" ]] ; then
-        REPLY="$(${VIRTUAL_ENV:t}) "
+        REPLY="${VIRTUAL_ENV:t} "
     elif [[ -n "${CONDA_DEFAULT_ENV}" ]] ; then
         REPLY="(${CONDA_DEFAULT_ENV:t}) "
     else
@@ -59,6 +59,10 @@ if ! grml_theme_has_token virtual-env; then
 fi
 
 zstyle ':prompt:grml:left:setup' items rc change-root user at host path virtual-env vcs percent
+
+# Newline on every prompt - useful for narrow terminal windows
+zstyle ':prompt:grml:left:items:percent' pre '
+'
 
 # Make the prompt colors work with Solarized
 zstyle ':prompt:grml:*:items:user' pre "%B%F{4}"
