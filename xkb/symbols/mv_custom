@@ -1,0 +1,8 @@
+partial modifier_keys
+xkb_symbols "menu_mod4" {
+    replace key <COMP> {
+        [VoidSymbol, VoidSymbol]
+    };
+    modifier_map Mod4 { <COMP> };
+};
+
