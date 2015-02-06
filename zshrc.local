@@ -10,6 +10,18 @@ alias urbt='systemctl reboot'
 #alias uslp='systemctl suspend'
 alias dtstring='date +%Y%m%d%H%M%S'
 
+# And an SSH that attaches to screen - "screen ssh"
+function sssh() {
+    TERM=rxvt-unicode ssh -t $1 screen -d -RR
+}
+
+# Easily activate Python virtualenvs
+function pve-act() {
+    source ~/python-envs/$1/bin/activate
+}
+# Would be nice if I could have custom completion of virtualenvs, but the zsh
+# completion system gives me a headache.
+
 #### Colors and Prompt Customization ####
 
 eval `dircolors ~/.dircolors`
