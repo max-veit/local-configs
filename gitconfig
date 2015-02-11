@@ -6,9 +6,10 @@
 	tool = vimdiff
 	guitool = meld
 [core]
+	pager = most
 	excludesfile = ~/.gitignore
 [merge]
-	tool = vimdiff
+	tool = meld
 [color]
 	ui = true
 	diff = true
