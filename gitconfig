@@ -1,0 +1,14 @@
+[user]
+	name = Max Veit
+	email = maxdveit@gmail.com
+	signingkey = 503B33F0
+[diff]
+	tool = vimdiff
+[color]
+	ui = true
+	diff = true
+[push]
+	default = simple
+[alias]
+	logg = log --oneline --graph --decorate --abbrev-commit
+	logga = log --all --oneline --graph --decorate --abbrev-commit
