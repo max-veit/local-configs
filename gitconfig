@@ -6,10 +6,9 @@
 	tool = vimdiff
 	guitool = meld
 [core]
-	pager = most
-	excludesfile = /home/max/.gitignore
+	excludesfile = ~/.gitignore
 [merge]
-	tool = meld
+	tool = vimdiff
 [color]
 	ui = true
 	diff = true
