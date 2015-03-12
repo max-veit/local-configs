@@ -18,3 +18,5 @@
 [alias]
 	logg = log --oneline --graph --decorate --abbrev-commit
 	logga = log --all --oneline --graph --decorate --abbrev-commit
+[help]
+	autocorrect = 10

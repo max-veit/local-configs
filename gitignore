@@ -2,3 +2,5 @@
 *.sw[p,o]
 # General backup files
 *~
+# Meld mergetool garbage
+*.orig
