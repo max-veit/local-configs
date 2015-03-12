@@ -4,6 +4,12 @@
 	signingkey = 503B33F0
 [diff]
 	tool = vimdiff
+	guitool = meld
+[core]
+	pager = most
+	excludesfile = /home/max/.gitignore
+[merge]
+	tool = meld
 [color]
 	ui = true
 	diff = true

@@ -1,0 +1,4 @@
+# Vim swapfiles
+*.sw[p,o]
+# General backup files
+*~
