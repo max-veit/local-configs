@@ -20,7 +20,15 @@ function pve-act() {
     source ~/python-envs/$1/bin/activate
 }
 # Would be nice if I could have custom completion of virtualenvs, but the zsh
-# completion system gives me a headache.
+# completion system docs give me a headache.
+
+
+#### Custom functions
+
+fpath=( $HOME/.zfunc "${fpath[@]}" )
+
+autoload -Uz refresh_input_settings
+
 
 #### Colors and Prompt Customization ####
 

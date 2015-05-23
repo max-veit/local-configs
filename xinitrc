@@ -23,14 +23,7 @@ fi
 # ...or the Window Manager of your choice
 
 # Keymap and other options
-refresh_input_settings() {
-    xkbcomp -I$HOME/.xkb ~/.xkb/keymap/mv_custom $DISPLAY
-
-    # Make the mouse left-handed (i.e. discourage mouse use!)
-    xinput set-button-map 16  3 2 1 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
-}
-
-refresh_input_settings
+zsh -c refresh_input_settings
 
 # Set desktop bg
 feh --bg-fill ~/Desktop/HAL9000.jpg &
