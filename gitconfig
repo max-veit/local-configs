@@ -1,0 +1,26 @@
+[user]
+	name = Max Veit
+	email = maxdveit@gmail.com
+	signingkey = 503B33F0
+[diff]
+	tool = vimdiff
+	guitool = meld
+[core]
+	pager = most
+	excludesfile = ~/.gitignore
+	attributesfile = /home/max/.gitattributes
+[merge]
+	tool = meld
+[color]
+	ui = true
+	diff = true
+[push]
+	default = simple
+[alias]
+	logg = log --oneline --graph --decorate --abbrev-commit
+	logga = log --all --oneline --graph --decorate --abbrev-commit
+[help]
+	autocorrect = 10
+[filter "dropoutput_ipynb"]
+	clean = /home/max/bin/ipynb_output_filter.py
+	smudge = cat
