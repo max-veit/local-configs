@@ -41,7 +41,7 @@ fi
 zstyle ':vcs_info:*' check-for-changes 1
 zstyle ':vcs_info:*' unstagedstr "${RED}U${YELLOW}-${NO_COLOR}"
 zstyle ':vcs_info:*' stagedstr "${GREEN}S${YELLOW}-${NO_COLOR}"
-zstyle ':vcs_info:*' actionformats "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-%c%u${MAGENTA}[${GREEN}%b${YELLOW}|${RED}%a${MAGENTA}]${RED}%m " "zsh: %r"
+zstyle ':vcs_info:*' actionformats "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-%c%u${MAGENTA}[${GREEN}%b${YELLOW}|${RED}%a${MAGENTA}] ${RED}%m${NO_COLOR}" "zsh: %r"
 zstyle ':vcs_info:*' formats       "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-%c%u${MAGENTA}[${GREEN}%b${MAGENTA}]${NO_COLOR}%}%m " "zsh: %r"
 
 function virtual_env_prompt() {
