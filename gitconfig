@@ -8,6 +8,7 @@
 [core]
 	pager = most
 	excludesfile = ~/.gitignore
+	attributesfile = /home/max/.gitattributes
 [merge]
 	tool = meld
 [color]
@@ -20,3 +21,6 @@
 	logga = log --all --oneline --graph --decorate --abbrev-commit
 [help]
 	autocorrect = 10
+[filter "dropoutput_ipynb"]
+	clean = /home/max/bin/ipynb_output_filter.py
+	smudge = cat
