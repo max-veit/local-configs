@@ -22,6 +22,10 @@ function pve-act() {
 # Would be nice if I could have custom completion of virtualenvs, but the zsh
 # completion system docs give me a headache.
 
+# SSH agent manager
+function sshkeys() {
+    eval $(keychain --eval --timeout 60 id_rsa)
+}
 
 #### Custom functions
 
@@ -93,8 +97,3 @@ zstyle ':prompt:grml:*:items:user' pre "%B%F{4}"
 setopt complete_inword
 setopt inc_append_history
 
-# Configuration for Python
-export PYTHONPATH=${PYTHONPATH}:/home/max/bin
-
-# Configuration for Anaconda
-export PATH=${PATH}:/home/max/miniconda3/bin
