@@ -11,7 +11,7 @@
 ! http://ethanschoonover.com/solarized
 
 #if !defined(SOLARIZED_DARK) && !defined(SOLARIZED_LIGHT)
-#define SOLARIZED_DARK
+#define SOLARIZED_LIGHT
 #endif
 
 ! Common

@@ -84,7 +84,9 @@ fi
 
 zstyle ':prompt:grml:left:setup' items rc change-root user at host path virtual-env vcs percent
 
-zstyle ':prompt:grml:right:setup' items history sad-smiley
+zstyle ':prompt:grml:right:items:date' post ' '
+
+zstyle ':prompt:grml:right:setup' items time date history sad-smiley
 
 # Newline on every prompt - useful for narrow terminal windows
 zstyle ':prompt:grml:left:items:percent' pre '

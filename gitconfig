@@ -19,6 +19,8 @@
 [alias]
 	logg = log --oneline --graph --decorate --abbrev-commit
 	logga = log --all --oneline --graph --decorate --abbrev-commit
+	stat = status --untracked=no
+	cdiff = diff --cached
 [help]
 	autocorrect = 10
 [filter "dropoutput_ipynb"]
