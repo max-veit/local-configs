@@ -99,3 +99,6 @@ zstyle ':prompt:grml:*:items:user' pre "%B%F{4}"
 setopt complete_inword
 setopt inc_append_history
 
+# Fuzzy finder keybindings
+. /etc/profile.d/fzf.zsh
+

@@ -9,6 +9,7 @@
 	pager = most
 	excludesfile = ~/.gitignore
 	attributesfile = /home/max/.gitattributes
+	editor = nvim
 [merge]
 	tool = meld
 [color]
