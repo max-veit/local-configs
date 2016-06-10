@@ -6,9 +6,9 @@
 alias lockscreen='i3lock --color=000000'
 alias ushd='systemctl poweroff'
 alias urbt='systemctl reboot'
-# This command causes the system to freeze - don't use it!
-#alias uslp='systemctl suspend'
+alias usus='systemctl suspend'
 alias dtstring='date +%Y%m%d%H%M%S'
+alias pres-mirror='xrandr --output DP-0 --same-as LVDS-0 --mode 1440x900'
 
 # And an SSH that attaches to screen - "screen ssh"
 function sssh() {
@@ -20,7 +20,19 @@ function pve-act() {
     source ~/python-envs/$1/bin/activate
 }
 # Would be nice if I could have custom completion of virtualenvs, but the zsh
-# completion system gives me a headache.
+# completion system docs give me a headache.
+
+# SSH agent manager
+function sshkeys() {
+    eval $(keychain --eval --timeout 60 id_rsa)
+}
+
+#### Custom functions
+
+fpath=( $HOME/.zfunc "${fpath[@]}" )
+
+autoload -Uz refresh_input_settings
+
 
 #### Colors and Prompt Customization ####
 
@@ -53,7 +65,7 @@ fi
 zstyle ':vcs_info:*' check-for-changes 1
 zstyle ':vcs_info:*' unstagedstr "${RED}U${YELLOW}-${NO_COLOR}"
 zstyle ':vcs_info:*' stagedstr "${GREEN}S${YELLOW}-${NO_COLOR}"
-zstyle ':vcs_info:*' actionformats "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-%c%u${MAGENTA}[${GREEN}%b${YELLOW}|${RED}%a${MAGENTA}]${RED}%m " "zsh: %r"
+zstyle ':vcs_info:*' actionformats "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-%c%u${MAGENTA}[${GREEN}%b${YELLOW}|${RED}%a${MAGENTA}] ${RED}%m${NO_COLOR}" "zsh: %r"
 zstyle ':vcs_info:*' formats       "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-%c%u${MAGENTA}[${GREEN}%b${MAGENTA}]${NO_COLOR}%}%m " "zsh: %r"
 
 function virtual_env_prompt() {
@@ -72,7 +84,9 @@ fi
 
 zstyle ':prompt:grml:left:setup' items rc change-root user at host path virtual-env vcs percent
 
-zstyle ':prompt:grml:right:setup' items history sad-smiley
+zstyle ':prompt:grml:right:items:date' post ' '
+
+zstyle ':prompt:grml:right:setup' items time date history sad-smiley
 
 # Newline on every prompt - useful for narrow terminal windows
 zstyle ':prompt:grml:left:items:percent' pre '
@@ -85,8 +99,6 @@ zstyle ':prompt:grml:*:items:user' pre "%B%F{4}"
 setopt complete_inword
 setopt inc_append_history
 
-# Configuration for Python
-export PYTHONPATH=${PYTHONPATH}:/home/max/bin
+# Fuzzy finder keybindings
+. /etc/profile.d/fzf.zsh
 
-# Configuration for Anaconda
-export PATH=${PATH}:/home/max/miniconda3/bin

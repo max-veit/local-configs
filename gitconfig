@@ -6,9 +6,12 @@
 	tool = vimdiff
 	guitool = meld
 [core]
+	pager = most
 	excludesfile = ~/.gitignore
+	attributesfile = /home/max/.gitattributes
+	editor = nvim
 [merge]
-	tool = vimdiff
+	tool = meld
 [color]
 	ui = true
 	diff = true
@@ -17,5 +20,10 @@
 [alias]
 	logg = log --oneline --graph --decorate --abbrev-commit
 	logga = log --all --oneline --graph --decorate --abbrev-commit
+	stat = status --untracked=no
+	cdiff = diff --cached
 [help]
 	autocorrect = 10
+[filter "dropoutput_ipynb"]
+	clean = /home/max/bin/ipynb_output_filter.py
+	smudge = cat
