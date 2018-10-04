@@ -4,3 +4,6 @@
 *~
 # Meld mergetool garbage
 *.orig
+# OSX crap
+.DS_Store
+._.DS_Store

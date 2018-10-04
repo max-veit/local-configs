@@ -18,7 +18,8 @@ call dein#add('scrooloose/nerdcommenter')
 call dein#add('altercation/vim-colors-solarized')
 call dein#add('xolox/vim-misc')
 call dein#add('xolox/vim-easytags')
-call dein#add('vim-latex/vim-latex')
+"call dein#add('vim-latex/vim-latex')
+call dein#add('lervag/vimtex')
 call dein#add('ervandew/supertab')
 call dein#add('tmhedberg/SimpylFold')
 call dein#add('junegunn/fzf')
@@ -28,7 +29,8 @@ call dein#add('airblade/vim-gitgutter')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
 call dein#add('tpope/vim-fugitive')
-call dein#add('terryma/vim-multiple-cursors')
+"Sadly, this plugin is just confusing and doesn't work that well.
+"call dein#add('terryma/vim-multiple-cursors')
 
 " Python and TeX customizations
 call dein#local('/home/max/.vim/bundle', {'script_type': 'ftplugin'}, ['mv-custom'])
@@ -118,7 +120,6 @@ vnoremap gk gj
 vnoremap gl gk
 
 inoremap jk <ESC>
-"vnoremap jk <ESC>
 " Just some training wheels...
 "inoremap <ESC> <nop>
 
@@ -251,76 +252,14 @@ let g:easytags_by_filetype='~/.vimtags'
 " Snippets
 let g:snips_author = "Max Veit"
 
-
-" --- vim-latex plugin --- {{{
-
-" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
-" Already included - see above
-" filetype plugin on
-
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
-" can be called correctly.
-set shellslash
-
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-
-" TIP: if you write your \label's as \label{fig:something}, then if you
-" type in \ref{fig: and press <C-n> you will automatically cycle through
-" all the figure labels. Very useful!
-set iskeyword+=:
-
-"Need to find a good pdf viewer with inverse search support
-"let g:Tex_ViewRule_pdf = 'Skim'
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_ViewRule_pdf = 'evince'
-let g:Tex_ViewRule_dvi = 'xdvi'
-let g:Tex_CompileRule_dvi = 'latex -interaction=nonstopmode --src-specials'
-let g:Tex_MultipleCompileFormats = 'dvi,pdf'
-
-" Don't go to preview window on compile. Annoying with minor font-like
-" warnings.
-let g:Tex_GotoError = 0
-
-" --- Customization of Default Settings --- {{{
-" Smart Quoting can be really annoying for writing in German. Add
-" functionality to toggle it.
-" function! g:Tex_ToggleSmartQuotes()
-"     if !exists('g:Tex_SmartKeyQuote') || g:Tex_SmartKeyQuote==1
-"         echo('Turning LaTeX smart quoting off.')
-"         let g:Tex_SmartKeyQuote = 0
-"     elseif exists('g:Tex_SmartKeyQuote')
-"         echo('Turning LaTeX smart quoting on.')
-"         let g:Tex_SmartKeyQuote = 1
-"     endif
-" endfunction
-
-" Ignore font size warnings. They're unhelpful and distracting.
-function! g:Tex_IgnoreFontWarnings()
-    if exists('g:Tex_IgnoredWarnings')
-        if strridx(g:Tex_IgnoredWarnings, "LaTeX Font Warning") == -1
-            let g:Tex_IgnoredWarnings .= "\nLaTeX Font Warning"
-            let g:Tex_IgnoreLevel += 1
-        endif
-    endif
-endfunction
-
-
-augroup latexsuite_custom
-    autocmd!
-"     autocmd FileType tex nnoremap <buffer> <localleader>tq
-"                 \:call g:Tex_ToggleSmartQuotes()<CR>
-    autocmd FileType tex call g:Tex_IgnoreFontWarnings()
-augroup END
-" }}}
-
-" }}}
+" vimtex
+let g:vimtex_view_method='zathura'
+let g:vimtex_compiler_progname='nvr'
+" Autocompletion for vimtex
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.tex =
+    \ g:vimtex#re#neocomplete
 
 " }}}

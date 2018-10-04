@@ -27,3 +27,5 @@
 [filter "dropoutput_ipynb"]
 	clean = /home/max/bin/ipynb_output_filter.py
 	smudge = cat
+[commit]
+	gpgSign = true
